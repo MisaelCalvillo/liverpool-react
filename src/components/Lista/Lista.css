@@ -1,5 +1,8 @@
 .Lista {
   display: flex;
+  width: 600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: 2rem;
 }

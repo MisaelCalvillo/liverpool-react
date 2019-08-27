@@ -7,15 +7,16 @@ import Pokemon from '../Pokemon';
 class Lista extends React.Component {
 
   state = {
-    selectedPokemon: null
+    selectedPokemon: null,
+    list: []
   }
 
 
   componentDidMount() {
-    axios.get('https://pokeapi.co/api/v2/pokemon/ditto/')
+    axios.get('https://pokeapi.co/api/v2/pokemon/?limit=50')
     .then((response) => {
       this.setState({
-        selectedPokemon: response.data
+        list: response.data.results
       });
     })
     .catch((error) => console.error(error))
@@ -25,7 +26,13 @@ class Lista extends React.Component {
     return (
       <div className="Lista">
         
-        <Pokemon pokemon={this.state.selectedPokemon}/>
+        {this.state.list.map((pokemon) => 
+        <Pokemon 
+          pokemon={pokemon}
+          key={pokemon.name}
+        />
+        )}
+        
       </div>
     )
   }
