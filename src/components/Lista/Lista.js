@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+import './Lista.css';
 import Pokemon from '../Pokemon';
 
 class Lista extends React.Component {
@@ -22,7 +23,7 @@ class Lista extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Lista">
         
         <Pokemon pokemon={this.state.selectedPokemon}/>
       </div>
