@@ -1,20 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 
-import Planet from '../Planet';
+import Pokemon from '../Pokemon';
 
 class Lista extends React.Component {
 
   state = {
-    selectedPlanet: null
+    selectedPokemon: null
   }
 
 
   componentDidMount() {
-    axios.get('https://swapi.co/api/planets/1/')
+    axios.get('https://pokeapi.co/api/v2/pokemon/ditto/')
     .then((response) => {
       this.setState({
-        selectedPlanet: response.data
+        selectedPokemon: response.data
       });
     })
     .catch((error) => console.error(error))
@@ -24,7 +24,7 @@ class Lista extends React.Component {
     return (
       <div>
         
-        <Planet planet={this.state.selectedPlanet}/>
+        <Pokemon pokemon={this.state.selectedPokemon}/>
       </div>
     )
   }
